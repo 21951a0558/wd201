@@ -1,12 +1,12 @@
 {
-  "name": "unique-http-server",
+  "name": "http-server",
   "version": "2.0.0",
-  "description": "A custom HTTP server application",
-  "main": "server.js",
+  "description": "\"My https server application\"",
+  "main": "index.js",
   "scripts": {
-    "launch": "node server.js",
-    "verify": "echo \"No tests defined\" && exit 1"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Hari",
-  "license": "MIT"
+  "license": "ISC"
 }
