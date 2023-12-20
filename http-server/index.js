@@ -4,23 +4,21 @@ const fs = require("fs");
 const args = require("minimist")(process.argv.slice(2));
 let homeContent = "";
 let projectContent = "";
-let registrationContent = "";
 
-fs.readFile("my-home.html", (err, home) => {
+fs.readFile("home.html", (err, home) => {
   if (err) {
     throw err;
   }
   homeContent = home;
 });
 
-fs.readFile("my-project.html", (err, project) => {
+fs.readFile("project.html", (err, project) => {
   if (err) {
     throw err;
   }
   projectContent = project;
 });
-
-fs.readFile("user-registration.html", (err, registration) => {
+fs.readFile("registration.html", (err, registration) => {
   if (err) {
     throw err;
   }
@@ -30,15 +28,14 @@ fs.readFile("user-registration.html", (err, registration) => {
 http
   .createServer((request, response) => {
     let url = request.url;
-    console.log("Requested URL: ", url);
-    response.writeHeader(200, { "Content-Type": "text/html" });
-
+    console.log("URL: ", url);
+    response.writeHeader(300, { "Content-Type": "text/html" });
     switch (url) {
-      case "/my-project":
+      case "/project":
         response.write(projectContent);
         response.end();
         break;
-      case "/user-registration":
+      case "/registration":
         response.write(registrationContent);
         response.end();
         break;
@@ -49,5 +46,4 @@ http
     }
   })
   .listen(args["port"]);
-
-console.log(`Server is now live on port ${args["port"]}`);
+  console.log(`Server running on port ${args["port"]}`)
