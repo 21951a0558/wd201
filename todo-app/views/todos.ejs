@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="<%= csrfToken %>" />
+    <link href="./css/styles.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        var token = document
+            .querySelector('meta[name="csrf-token"]')
+            .getAttribute("content");
+        // console.log(Token);
+        function UpdateTodo(id,status) {
+            fetch(`/todos/${id}`, {
+                method: "put",
+                headers: { "content-Type": "application/json",},
+                body: JSON.stringify({
+                    completed: status,
+                    "_csrf": token
+                })
+            })
+                .then((res) => {
+                    if (res.ok) {
+                        window.location.reload();
+                    }
+                })
+                .catch((err) => console.log(err));
+        }
+
+        function DeleteTodo(id) {
+            fetch(`/todos/${id}`, {
+                method: "delete",
+                headers: { "content-Type": "application/json", },
+                body: JSON.stringify({
+                    "_csrf": token
+                })
+            })
+                .then((res) => {
+                    if (res.ok) {
+                        window.location.reload();
+                    }
+                })
+                .catch((err) => console.log(err));
+        }
+    </script>
+    <title>TodoList</title>
+</head>
+
+<body>
+    <div class="grid grid-cols-6">
+        <div class="col-start-3 col-span-2">
+            <%- include('header.ejs') %>
+            <div class="flex my-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>               
+                <%= loggedInUser.firstName %>
+                <%= loggedInUser.lastName %> <br>
+            </div>
+            <div class="flex gap-4 text-blue-600 ">
+                <a class="hover:text-blue-800" href="/signup">SignUp</a>
+                <a class="hover:text-blue-800" href="/login">Login</a>
+                <a class="text-red-600 hover:text-red-800" href="/signout">SignOut</a>
+            </div>
+                <form action="/todos" method="post">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                    <div class="flex py-5 gap-2">
+                        <div class="flex-auto">
+                            <input class="border border-gray-300 text-gray-900 w-full rounded p-2 text-sm" name="title"
+                                type="text" placeholder="Enter Todo">
+                        </div>
+                        <div class="flex-auto">
+                            <input class="border border-gray-300 text-gray-900 w-full rounded p-2 text-sm leading-4"
+                                name="dueDate" type="date">
+                        </div>
+                        <div class="flex-none">
+                            <button class="bg-green-600 text-white px-5 py-1.5 rounded font-medium mr-2"
+                                type="submit">Add</button>
+                        </div>
+                    </div>
+                </form>
+
+                <%- include('todo.ejs',{ "todotype" : "Overdue" , "id" : "count-overdue" , "todos" : overdueTodos }) %>
+
+                <%- include('todo.ejs',{ "todotype" : "Due Today" , "id" : "count-due-today" , "todos" : dueTodayTodos }) %>
+
+                <%- include('todo.ejs',{ "todotype" : "Due Later" , "id" : "count-due-later" , "todos" : dueLaterTodos }) %>
+
+                <%- include('todo.ejs',{ "todotype" : "Completed Items" , "id" : "count-completed-items" , "todos" : completedTodos }) %>
+
+                <% if(messages && messages.error && messages.error.length> 0) { %>
+                    <% for(var i=0; i<messages.error.length; i++) { %>
+                        <li>
+                            <%= messages.error[i] %><br>
+                        </li>
+                        <% } %>
+                            <% } %>
+
+                  
+                  
+        </div>
+    </div>
+
+    <!-- 
+    <%- include('footer.ejs') %> -->
+</body>
+
+</html>
