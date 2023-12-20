@@ -4,45 +4,45 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unique Registration Page</title>
-    <link rel="stylesheet" href="./unique-styles.css" >
+    <title>Login Form</title>
+    <link rel="stylesheet" href="./registration" >
     
 </head>
 <body>
-    <div class="custom-container">
-        <div class="registration-box">
-            <form id="registration-form">
-                <h2>Sign Up</h2>
-                <label for="name">Full Name</label>
+    <div class="container">
+        <div class="login-box">
+            <form id="login-form">
+                <h2>Registration Form   </h2>
+                <label for="name">Your Name</label>
                 <input type="text" id="name" name="name">
                 <br>
-                <label for="email">Email Address</label>
+                <label for="email">Your Email</label>
                 <input type="email" id="email" name="email">
                 <br>
                 
-                <label for="password">Password</label>
+                <label for="password">Your Password</label>
                 <input type="password" id="password" name="password">
                 <br>
                 
-                <label for="dob">Date of Birth</label>
+                <label for="dob">Your Date of Birth</label>
                 <input type="date" id="dob" name="dob">
                 
                 <br>
-                <input type="checkbox" id="acceptTerms" name="acceptTerms">  <label id="check" for="acceptTerms">I agree to the Terms and Conditions</label>
+                <input type="checkbox" id="acceptTerms" name="acceptTerms">  <label id="check" for="acceptTerms">Accept Terms and Conditions</label>
                 <br>
 
-                <button id="submit-button" type="submit">Create Account</button>
+                <button id="button" type="submit">Submit</button>
             </form>
         </div>
-        <div id ="tab-container"> 
-            <div id = "tab-content">
-                <h2 id="tab-heading">User Entries</h2>
-                <div id="user-list">
+        <div id ="tab1"> 
+            <div id = "tab2">
+                <h2 id="tab3">Entries</h2>
+                <div id="user-entries">
 
                 </div>
             </div>
         </div>
     </div>
-    <script src="./unique-scripts.js"></script>
+    <script src="./registration"></script>
 </body>
 </html>
