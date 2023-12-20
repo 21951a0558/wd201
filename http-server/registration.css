@@ -1,121 +1,106 @@
-* {
+*{
     margin: 0;
     box-sizing: border-box;
 }
-
-body {
-    background-color: rgb(224, 236, 246);
+body{
+ background-color: rgb(2112, 228, 238);   
 }
-
-.container {
-    height: 520px;
+.container{
+    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-top: 60px;
 }
-
-h2 {
+h2{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px;
-    margin-bottom: 25px;
+    margin:  20px;
+    margin-bottom: 40px;
 }
-
-.login-box {
-    background-color: rgb(241, 245, 245);
-    width: 420px;
+.login-box{
+    background-color: rgb(236, 243, 243);
+    width: 410px;
     height: 360px;
     display: grid;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
-    box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.3);
+    border-radius: 9px;
 }
 
-label {
-    height: 30px;
-    margin-left: 10px;
-    margin-right: 90px;
-    margin-bottom: 20px;
+label{
+    height: 40px;
+    margin-left: 8px;
+    margin-right: 100px;
+    margin-bottom: 30px;
 }
-
-input {
-    height: 30px;
+input{
+    height: 40px;
     width: 200px;
     margin-bottom: 20px;
 }
-
-#name,
-#email {
-    margin-left: 28px;
+#name,#email{
+    margin-left: 24px;
 }
-
-#dob {
-    margin-left: -28px;
+#dob{
+    margin-left: -24px;
 }
+#check{
+    margin-left: 2px;
 
-#check {
-    margin-left: 3px;
 }
-
-#acceptTerms {
+#acceptTerms{
     width: 15px;
-    margin-left: 10px;
+    margin-left: 8px;
 }
-
-button {
-    margin-left: 10px;
-    background-color: rgb(52, 94, 228);
+button{
+    margin-left: 8px;
+    background-color: rgb(81, 81, 243);
     color: white;
 }
-
-#tab1 {
+#tab1{
     position: relative;
-    background-color: rgb(255, 255, 255);
-    padding: 12px 8px 10px 8px;
-    margin-top: 8px;
-    box-shadow: 0 30px 60px -16px rgba(0, 0, 0, 0.4);
+    background-color: rgb(256, 256, 256);
+    padding: 10px 6px 8px 6px;
+    margin-top: 5px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     border-width: 1px;
-    border-color: rgba(120, 120, 120, 0.2);
+    border-color: rgba(152, 152, 152, 0.2);
     margin-left: auto;
     margin-right: auto;
-    border-radius: 0.6rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
+    border-radius: 0.5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
 }
-
-#tab2 {
+#tab2{
     margin: auto;
 }
-
-#tab3 {
-    font-size: 2rem;
-    line-height: 2.5rem;
+#tab3{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
     text-align: center;
     font-weight: 700;
     line-height: 1.2;
 }
-
-#user-entries {
-    border-top-width: 2px;
+#user-entries{
+    border-top-width: 1px;
     border-top-style: solid;
-    border-color: rgba(165, 173, 185, 0.6);
+    border-color: rgba(156, 163, 175, 0.5);
 }
-
-td {
+td{
     border-width: 0 1px 1px 0;
+    /* border-left-width: 0px; */
     border-style: solid;
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
-    padding-top: 0.6rem;
-    padding-bottom: 0.6rem;
-    border-color: #8B4513;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-color: brown;
 }
-
-th {
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
+th{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    
 }
